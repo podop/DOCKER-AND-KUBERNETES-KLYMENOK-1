@@ -7,7 +7,6 @@ docker run --rm hello-world
 echo
 echo "=== Step 2: Start Nginx on port 8080 ==="
 docker run -d --name web1 -p 8080:80 nginx:alpine
-echo "Open http://localhost:8080 in your browser to check Nginx."
 
 echo
 echo "=== Step 3: Start 10 Nginx containers on ports 8081..8090 ==="
@@ -29,4 +28,5 @@ docker rm -f $(docker ps -aq) >/dev/null 2>&1 || true
 echo "All containers stopped and removed."
 
 echo
+
 echo "Done!"
