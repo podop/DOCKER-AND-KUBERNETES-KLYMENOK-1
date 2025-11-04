@@ -1,6 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
-title Docker Desktop automation demo
+title Docker automation demo
 
 echo === Step 1: Run hello-world ===
 docker run --rm hello-world || goto :error
@@ -8,7 +8,6 @@ docker run --rm hello-world || goto :error
 echo.
 echo === Step 2: Start Nginx on port 8080 ===
 docker run -d --name web1 -p 8080:80 nginx:alpine || goto :error
-echo Open http://localhost:8080 in your browser to check Nginx.
 
 echo.
 echo === Step 3: Start 10 Nginx containers on ports 8081..8090 ===
@@ -37,4 +36,5 @@ exit /b 0
 echo.
 echo [ERROR] Something went wrong. Check that Docker Desktop is running in Linux containers mode.
 pause
+
 exit /b 1
