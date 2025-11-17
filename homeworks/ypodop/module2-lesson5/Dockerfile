@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-COPY ../../apps/course-app/requirements.txt .
+COPY apps/course-app/requirements.txt .
 RUN python -m venv /opt/venv \
  && . /opt/venv/bin/activate \
  && pip install --upgrade pip \
@@ -25,7 +25,7 @@ COPY --from=builder /opt/venv /opt/venv
 
 # App code
 WORKDIR /app
-COPY ../../apps/course-app/src/ /app/src/
+COPY apps/course-app/src/ /app/src/
 
 RUN useradd -m appuser
 USER appuser

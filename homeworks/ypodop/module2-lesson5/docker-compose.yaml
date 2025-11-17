@@ -2,8 +2,8 @@ version: "3.9"
 services:
   course-app:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../../../       # <-- from compose dir to app dir
+      dockerfile: homeworks/ypodop/module2-lesson5/Dockerfile
     image: course-app:local
     ports:
       - "8080:8080"
