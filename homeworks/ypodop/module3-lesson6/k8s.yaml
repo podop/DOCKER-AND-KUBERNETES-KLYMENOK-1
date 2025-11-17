@@ -74,12 +74,6 @@ spec:
               command: ["redis-cli","ping"]
             initialDelaySeconds: 10
             periodSeconds: 10
-            volumeMounts:
-             - name: redis-data
-               mountPath: /data
-          volumes:
-          - name: redis-data
-            emptyDir: {}
 
 ---
 # =========================================
@@ -127,6 +121,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: course-app-config
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 8080
+            initialDelaySeconds: 5
+            timeoutSeconds: 2
+            periodSeconds: 5
           livenessProbe:
             httpGet:
               path: /healthz
