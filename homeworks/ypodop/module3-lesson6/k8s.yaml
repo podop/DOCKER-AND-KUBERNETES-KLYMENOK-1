@@ -104,7 +104,7 @@ metadata:
   name: course-app
   namespace: course-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: course-app
